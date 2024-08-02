@@ -1,7 +1,14 @@
 import styled from "styled-components";
 import { getVariantButton } from "../../helpers/styling";
 
-export const Button = ({ children, icon, variant, disabled }) => {
+export const Button = ({
+  children,
+  icon,
+  variant,
+  disabled,
+  onClick,
+  ...rest
+}) => {
   const withIcon = icon ? (
     <>
       <StyledIcon>{icon}</StyledIcon>
@@ -12,7 +19,12 @@ export const Button = ({ children, icon, variant, disabled }) => {
   );
 
   return (
-    <StyledButton disabled={disabled} variant={variant}>
+    <StyledButton
+      onClick={onClick}
+      disabled={disabled}
+      variant={variant}
+      {...rest}
+    >
       {withIcon}
     </StyledButton>
   );
