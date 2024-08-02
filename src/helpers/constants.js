@@ -5,4 +5,5 @@ export const BASE_STYLES = {
   LIGTH_GREY: "#cac6c4",
   DARK_BROWN: "#7e2a0a",
   LIGTH_BROWN: "#993108",
+  BLACK_BROWN: "#5a1f08",
 };
