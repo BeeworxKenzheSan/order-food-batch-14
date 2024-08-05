@@ -16,13 +16,16 @@ export const Header = () => {
 const StyledHeader = styled.header`
   width: 100%;
   background-color: ${BASE_STYLES.BROWN};
+  position: fixed;
+  top: 0;
+  z-index: 10;
 `;
 
 const Container = styled.div`
   width: 1200px;
   max-width: 100%;
   margin: 0 auto;
-  padding: 22px 0;
+  padding: 15px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;

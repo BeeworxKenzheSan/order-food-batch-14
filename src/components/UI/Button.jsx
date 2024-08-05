@@ -12,7 +12,7 @@ export const Button = ({
   const withIcon = icon ? (
     <>
       <StyledIcon>{icon}</StyledIcon>
-      {children}
+      {children}XD
     </>
   ) : (
     children
