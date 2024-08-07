@@ -1,6 +1,8 @@
 import { Header } from "./components/header/Header";
 import Summary from "./components/summary/Summary";
 import Meals from "./components/meals/Meals";
+import { useState } from "react";
+import BasketView from "./components/basket/BasletView";
 
 const meals = [
   {
@@ -30,11 +32,17 @@ const meals = [
 ];
 
 function App() {
+  const [openBasket, setOpenBasket] = useState(false);
+
+  function basketHandler() {
+    setOpenBasket((prevState) => !prevState);
+  }
   return (
     <>
-      <Header />
+      <Header onOpen={basketHandler} />
       <Summary />
       <Meals meals={meals} />
+      {openBasket && <BasketView onClose={basketHandler} />}
     </>
   );
 }
