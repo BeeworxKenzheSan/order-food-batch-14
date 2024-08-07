@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import MealItems from "./MealItems";
+import { useContext } from "react";
+import { BasketContext } from "../../store/BasketProvider";
 
 const Meals = ({ meals }) => {
+  const { onAddFood } = useContext(BasketContext);
   return (
     <Card>
       {meals.map((meal, index) => {
@@ -12,6 +15,7 @@ const Meals = ({ meals }) => {
             title={meal.title}
             description={meal.description}
             price={meal.price}
+            onAddFood={onAddFood}
           />
         );
       })}

@@ -2,7 +2,13 @@ import styled from "styled-components";
 import { Button } from "../UI/Button";
 import { MinusIcon, PlusIcon } from "../../assets/icon-collection";
 
-const BasketItem = ({ title, price, amount }) => {
+const BasketItem = ({ title, price, amount, id, onRemoveFood, onAddFood }) => {
+  const tamak = {
+    title,
+    price,
+    amount: 1,
+    id,
+  };
   return (
     <Container>
       <MealInfo>
@@ -14,10 +20,10 @@ const BasketItem = ({ title, price, amount }) => {
       </MealInfo>
 
       <ButtonsContainer>
-        <Button variant="icon">
+        <Button variant="icon" onClick={() => onAddFood(tamak)}>
           <PlusIcon />
         </Button>
-        <Button variant="icon">
+        <Button variant="icon" onClick={() => onRemoveFood(id)}>
           <MinusIcon />
         </Button>
       </ButtonsContainer>

@@ -7,12 +7,13 @@ export const Button = ({
   variant,
   disabled,
   onClick,
+  type,
   ...rest
 }) => {
   const withIcon = icon ? (
     <>
       <StyledIcon>{icon}</StyledIcon>
-      {children}XD
+      {children}
     </>
   ) : (
     children
@@ -23,6 +24,7 @@ export const Button = ({
       onClick={onClick}
       disabled={disabled}
       variant={variant}
+      type={type}
       {...rest}
     >
       {withIcon}

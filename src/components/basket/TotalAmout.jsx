@@ -4,7 +4,7 @@ const TotalAmount = ({ totalAmount = 0 }) => {
   return (
     <Container>
       <StyledTotalAmount>Total Amount</StyledTotalAmount>
-      <TotalPrice>${totalAmount}</TotalPrice>
+      <TotalPrice>${totalAmount.toFixed(2)}</TotalPrice>
     </Container>
   );
 };

@@ -2,9 +2,9 @@ import styled from "styled-components";
 import { BasketIcon } from "../../assets/icon-collection";
 import { BASE_STYLES } from "../../helpers/constants";
 
-export const Basket = ({ orders = 20 }) => {
+export const Basket = ({ orders = 20, onOpen }) => {
   return (
-    <Wrapper>
+    <Wrapper onClick={onOpen}>
       <BasketIcon />
       <YourCard>Your Cart</YourCard>
       <Orders>{orders}</Orders>

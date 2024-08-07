@@ -1,8 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import MealItemForm from "./MealItemForm";
 
-const MealItems = ({ title, description, price, id }) => {
+const MealItems = ({ title, description, price, id, onAddFood }) => {
+  const [amount, setAmount] = useState(1);
+
+  function onAddAmount(e) {
+    setAmount(e.target.value);
+  }
+
+  function onSubmit(e) {
+    console.log(e);
+    e.preventDefault();
+    const tamak = {
+      amount,
+      id,
+      price,
+      description,
+      title,
+    };
+    onAddFood(tamak);
+  }
   return (
     <List>
       <InfoList>
@@ -10,7 +28,13 @@ const MealItems = ({ title, description, price, id }) => {
         <InfoFood>{description}</InfoFood>
         <PriceTitle>{price}</PriceTitle>
       </InfoList>
-      <MealItemForm id={id} price={price} title={title} />
+      <MealItemForm
+        onSubmit={onSubmit}
+        onChangeAmount={onAddAmount}
+        id={id}
+        price={price}
+        title={title}
+      />
     </List>
   );
 };

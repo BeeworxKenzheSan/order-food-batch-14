@@ -1,13 +1,19 @@
 import styled from "styled-components";
 import { BASE_STYLES } from "../../helpers/constants";
 import { Basket } from "../basket/Basket";
+import { useContext } from "react";
+import { BasketContext } from "../../store/BasketProvider";
 
-export const Header = () => {
+export const Header = ({ onOpen }) => {
+  const { items } = useContext(BasketContext);
+  const orders = items.reduce((san, obj) => {
+    return san + obj.amount;
+  }, 0);
   return (
     <StyledHeader>
       <Container>
         <Title>ReactMeals</Title>
-        <Basket />
+        <Basket onOpen={onOpen} orders={orders} />
       </Container>
     </StyledHeader>
   );

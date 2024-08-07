@@ -2,15 +2,25 @@ import { PlusIcon } from "../../assets/icon-collection";
 import { Button } from "../UI/Button";
 import styled from "styled-components";
 
-const MealItemForm = () => {
+const MealItemForm = ({ onChangeAmount, onSubmit }) => {
   return (
-    <AddAmount>
+    <AddAmount onSubmit={onSubmit}>
       <div>
         <AmountLabel>Amount</AmountLabel>
-        <AmountsInput type="number" min={"1"} max={"5"} defaultValue={1} />
+        <AmountsInput
+          type="number"
+          min={"1"}
+          max={"5"}
+          defaultValue={1}
+          onChange={onChangeAmount}
+        />
       </div>
 
-      <StyledButton variant="primary" icon={<PlusIcon stroke="white" />}>
+      <StyledButton
+        type="submit"
+        variant="primary"
+        icon={<PlusIcon stroke="white" />}
+      >
         ADD
       </StyledButton>
     </AddAmount>
